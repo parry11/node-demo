@@ -6,6 +6,9 @@ import cors from 'cors';
 import path from 'path';
 import DB from '../src/helpers/db';
 import Routes from '../src/routes';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from '../config/swagger.json';
+
 
 class Server {
 	app;
@@ -20,6 +23,9 @@ class Server {
 			this.app.use(cookieParser());
 			this.app.use(cors());
 			this.app.use(helmet());
+
+			this.app.use('/api-docs', swaggerUi.serve);
+			this.app.get('/api-docs', swaggerUi.setup(swaggerDocument));
 			await this.configureRoutes();
 			return this.app;
 		}
