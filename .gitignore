@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+**/.DS_Store
+.idea/
+logs/sradix-app-builder.error.log
+logs/sradix-app-builder.app.log
+logs/
